@@ -14,7 +14,7 @@ Run:
 
     npm run setup
 
-and open the URL printed at the end. A numeric random code is generated as a simple security measure. Copy it from the terminal and paste it into the field in the upper left corner of the web page.
+That's all. You now have a working VoIP phone that you can access from your browser. Open the URL printed at the end. A numeric random code is generated as a simple security measure. Copy it from the terminal and paste it into the field in the upper left corner of the web page.
 
 NOTE: The setup script will buy a US phone number which costs $1.00 / month. Calls to and from this app will incur charges on your Twilio account.
 

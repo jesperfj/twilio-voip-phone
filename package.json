@@ -1,5 +1,5 @@
 {
-  "name": "serverless-tryout",
+  "name": "twilio-voip-phone",
   "version": "0.0.0",
   "private": true,
   "scripts": {

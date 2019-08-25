@@ -4,9 +4,10 @@ This app allows you to make and receive phone calls in your browser. It has been
 
 ## Prerequisites
 
-* Sign up for a Twilio account
-* Install Node.js Twilio CLI
-* Install Twilio Serverless CLI plugin
+* Sign up for a [Twilio account](https://twilio.com/)
+* Install [Twilio CLI](https://www.twilio.com/docs/twilio-cli/quickstart)
+* Install Twilio Serverless CLI plugin: `twilio plugins:install @twilio-labs/plugin-serverless`
+* Log in with `twilio profiles:add` and follow instructions
 
 ## Setup
 

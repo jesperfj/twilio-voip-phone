@@ -18,6 +18,21 @@ label {
   display: block;
 }
 
+#input-secret {
+  width: 70px;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+#button-register {
+  border: none;
+  padding: 4px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 div#controls {
   padding: 3em;
   max-width: 1200px;

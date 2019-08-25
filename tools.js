@@ -5,8 +5,29 @@
         destroy(null)
     } else if(process.argv[2] == "destroy-really") {
         destroy("-y")
+    } else if(process.argv[2] == "info") {
+        info()
     }
 })()
+
+async function info() {
+    // Grab the service SID
+    const fs = require('fs');
+    const config = JSON.parse(fs.readFileSync('.twilio-functions'));
+
+    // Grab the domain name
+    r = await execCmd("twilio api:serverless:v1:services:environments:list --service-sid "+
+                        config.serviceSid+" -o json")
+    const envInfo = JSON.parse(r.stdout)
+
+    console.log("URL: https://"+envInfo[0].domainName+"/index.html")
+    r = await execCmd("twilio api:serverless:v1:services:environments:variables:list"+
+                      " --service-sid "+config.serviceSid+
+                      " --environment-sid "+envInfo[0].sid+
+                      " -o json")
+    const secret = JSON.parse(r.stdout).find( (element) => { return element.key == "SECRET" }).value
+    console.log("Secret: "+secret)
+}
 
 async function destroy(really) {
     if(really == "-y") {
@@ -115,7 +136,7 @@ async function setup() {
     console.log("TWIML_APP_SID="+appSid)
     console.log("")
     console.log("Open the app at https://"+envInfo[0].domainName+"/index.html")
-    console.log("Type the following secret code into the field in the upper left corner: "+secret)
+    console.log("Type the following secret code into the password field on the page: "+secret)
 }
 
 

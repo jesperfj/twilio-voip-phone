@@ -16,7 +16,7 @@ async function info() {
     const config = JSON.parse(fs.readFileSync('.twilio-functions'));
 
     // Grab the domain name
-    r = await execCmd("twilio api:serverless:v1:services:environments:list --service-sid "+
+    let r = await execCmd("twilio api:serverless:v1:services:environments:list --service-sid "+
                         config.serviceSid+" -o json")
     const envInfo = JSON.parse(r.stdout)
 
@@ -27,6 +27,9 @@ async function info() {
                       " -o json")
     const secret = JSON.parse(r.stdout).find( (element) => { return element.key == "SECRET" }).value
     console.log("Secret: "+secret)
+    r = await execCmd("twilio api:core:incoming-phone-numbers:list --friendly-name number-"+config.serviceSid+" -o json")
+    const numbers = JSON.parse(r.stdout)
+    console.log("Phone number: "+numbers[0].phoneNumber)
 }
 
 async function destroy(really) {

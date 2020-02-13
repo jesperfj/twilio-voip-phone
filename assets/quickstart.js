@@ -109,6 +109,7 @@
         });
 
         setClientNameUI(data.identity);
+        setPhoneNumber(data.callerId);
 
         device.audio.on('deviceChange', updateAllDevices.bind(device));
 
@@ -187,6 +188,13 @@
   function setClientNameUI(clientName) {
     var div = document.getElementById('client-name');
     div.innerHTML = 'Your client name: <strong>' + clientName +
+      '</strong>';
+  }
+
+  // Set the client name in the UI
+  function setPhoneNumber(phoneNumber) {
+    var div = document.getElementById('caller-id');
+    div.innerHTML = 'Your phone number: <strong>' + phoneNumber +
       '</strong>';
   }
 });

@@ -38,7 +38,8 @@ exports.handler = function(context, event, callback) {
         // Include identity and token in a JSON response
         response.setBody({
           'identity': identity,
-          'token': capability.toJwt()
+          'token': capability.toJwt(),
+          'callerId': context.CALLER_ID
         });
         
         callback(null, response);

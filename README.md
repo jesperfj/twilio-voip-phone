@@ -12,7 +12,9 @@ This app allows you to make and receive phone calls in your browser. It has been
 ## Setup
 
 Run:
+    npm install
 
+then:
     npm run setup
 
 That's all. You now have a working VoIP phone that you can access from your browser. Open the URL printed at the end. A numeric random code is generated as a simple security measure. Copy it from the terminal and paste it into the password field on the web page.
